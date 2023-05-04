@@ -74,5 +74,5 @@ startBtn.addEventListener('click', () => {
 
 flatpickrInstance.element.addEventListener('change', () => {
   clearInterval(countdown); // usuń istniejący interwał
-  startBtn.disabled = false; // umożliwia ponowne uruchomienie odliczania
+  startBtn.disabled = false; //ponowne uruchomienie odliczania
 });

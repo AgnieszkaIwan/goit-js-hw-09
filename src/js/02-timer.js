@@ -48,10 +48,6 @@ startBtn.addEventListener('click', () => {
     Notiflix.Notify.failure('Please choose a date in the future');
     startBtn.disabled = true;
   }
-  // if (!selectedDate) {
-  //   Notiflix.Notify.failure('Please choose a date and time');
-  //   return;
-  // }
   const countdown = setInterval(() => {
     const timeRemaining = selectedDate - new Date();
     if (timeRemaining < 0) {

@@ -14,11 +14,10 @@ formEl.addEventListener('submit', ev => {
     createPromise(i + 1, firstDelay + i * step)
       .then(({ position, delay }) => {
         Notiflix.Notify.success('✅ Fulfilled promise!');
-        // console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
+        console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
       })
       .catch(({ position, delay }) => {
-        // console.log(`❌ Rejected promise ${position} in ${delay}ms`);
-
+        console.log(`❌ Rejected promise ${position} in ${delay}ms`);
         Notiflix.Notify.failure('❌ Rejected promise!');
       });
   }

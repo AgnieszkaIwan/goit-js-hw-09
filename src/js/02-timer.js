@@ -40,6 +40,8 @@ console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
 console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
 console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
 
+let countdown;
+
 startBtn.addEventListener('click', () => {
   const selectedDate = flatpickrInstance.selectedDates[0];
   const now = new Date();
@@ -48,7 +50,7 @@ startBtn.addEventListener('click', () => {
     Notiflix.Notify.failure('Please choose a date in the future');
     // startBtn.disabled = true;
   }
-  const countdown = setInterval(() => {
+  countdown = setInterval(() => {
     const timeRemaining = selectedDate - new Date();
     if (timeRemaining < 0) {
       clearInterval(countdown);
@@ -68,4 +70,9 @@ startBtn.addEventListener('click', () => {
       .toString()
       .padStart(2, '0');
   }, 1000);
+});
+
+flatpickrInstance.element.addEventListener('change', () => {
+  clearInterval(countdown); // usuń istniejący interwał
+  startBtn.disabled = false; // umożliwia ponowne uruchomienie odliczania
 });

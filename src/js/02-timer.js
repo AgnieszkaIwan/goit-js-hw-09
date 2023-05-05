@@ -43,6 +43,7 @@ console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20
 let countdown;
 
 startBtn.addEventListener('click', () => {
+  clearInterval(countdown);
   const selectedDate = flatpickrInstance.selectedDates[0];
   const now = new Date();
   const timeRemaining = selectedDate - now;
